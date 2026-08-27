@@ -56,3 +56,43 @@
 2026-08-26 09:55:49.029: [INFO] BookmarkModelLoaded, ids_reassigned: 0
 2026-08-26 09:55:49.029: [INFO] BookmarksLoadDropped droppedNodes=0
 2026-08-26 09:55:49.029: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-26 20:28:07.731: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-27 08:44:18.289: [INFO] CurrentProfilePath: C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-08-27 08:44:18.289: [INFO] Profiles total count: 1
+2026-08-27 08:44:18.291: [INFO] Profile: name=Perfil 1 path=C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-08-25T10:24:33.150Z
+2026-08-27 08:44:18.291: [INFO] LastUsedProfileDir: C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-08-27 08:44:18.291: [INFO] MostRecentlyActiveProfile: name=Perfil 1 path=C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-08-25T10:24:33.150Z
+2026-08-27 08:44:18.291: [INFO] OnDoneLoading sync enabled: 0
+2026-08-27 08:44:18.291: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-08-27 08:44:18.291: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-08-27 08:44:18.291: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-27 08:44:46.731: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-27 09:28:40.634: [INFO] CurrentProfilePath: C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-08-27 09:28:40.634: [INFO] Profiles total count: 1
+2026-08-27 09:28:40.635: [INFO] Profile: name=Perfil 1 path=C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-08-25T10:24:33.150Z
+2026-08-27 09:28:40.635: [INFO] LastUsedProfileDir: C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-08-27 09:28:40.636: [INFO] MostRecentlyActiveProfile: name=Perfil 1 path=C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-08-25T10:24:33.150Z
+2026-08-27 09:28:40.636: [INFO] OnDoneLoading sync enabled: 0
+2026-08-27 09:28:40.636: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-08-27 09:28:40.636: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-08-27 09:28:40.636: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-27 09:29:03.905: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-27 09:42:08.005: [INFO] CurrentProfilePath: C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-08-27 09:42:08.005: [INFO] Profiles total count: 1
+2026-08-27 09:42:08.006: [INFO] Profile: name=Perfil 1 path=C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-08-27T09:29:02.639Z
+2026-08-27 09:42:08.006: [INFO] LastUsedProfileDir: C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-08-27 09:42:08.006: [INFO] MostRecentlyActiveProfile: name=Perfil 1 path=C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-08-27T09:29:02.639Z
+2026-08-27 09:42:08.006: [INFO] OnDoneLoading sync enabled: 0
+2026-08-27 09:42:08.006: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-08-27 09:42:08.006: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-08-27 09:42:08.006: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-27 09:42:12.094: [INFO] BookmarksSnapshot Shutdown total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-08-27 09:42:18.024: [INFO] CurrentProfilePath: C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-08-27 09:42:18.024: [INFO] Profiles total count: 1
+2026-08-27 09:42:18.024: [INFO] Profile: name=Perfil 1 path=C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-08-27T09:29:02.639Z
+2026-08-27 09:42:18.024: [INFO] LastUsedProfileDir: C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default
+2026-08-27 09:42:18.024: [INFO] MostRecentlyActiveProfile: name=Perfil 1 path=C:\Users\rotar\Desktop\Profesores\.metadata\.plugins\org.eclipse.swt\EBWebView\Default lastActive=2026-08-27T09:29:02.639Z
+2026-08-27 09:42:18.024: [INFO] OnDoneLoading sync enabled: 0
+2026-08-27 09:42:18.024: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-08-27 09:42:18.024: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-08-27 09:42:18.024: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1

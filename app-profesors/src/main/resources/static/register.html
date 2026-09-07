@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear cuenta · App Profesores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- Panel izquierdo: identidad de marca -->
+    <section class="brand-panel">
+      <div class="brand-content">
+        <span class="brand-eyebrow">App Profesores</span>
+        <h1 class="brand-title">Empieza a construir<br>tu biblioteca docente.</h1>
+        <p class="brand-text">Guarda tus exámenes y preguntas desde el primer día. Reutiliza y mejora tu material curso tras curso.</p>
+      </div>
+
+      <div class="stack" aria-hidden="true">
+        <div class="stack-card stack-card--3"></div>
+        <div class="stack-card stack-card--2"></div>
+        <div class="stack-card stack-card--1">
+          <span class="stack-line"></span>
+          <span class="stack-line stack-line--short"></span>
+          <span class="stack-check">✓</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Panel derecho: formulario -->
+    <section class="form-panel">
+      <div class="card card--wide">
+        <h2 class="card-title">Crea tu cuenta</h2>
+        <p class="card-subtitle">Regístrate como profesor/a.</p>
+
+        <form id="register-form" novalidate>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Laura" required>
+            </div>
+            <div class="field">
+              <label for="apellidos">Apellidos</label>
+              <input type="text" id="apellidos" name="apellidos" placeholder="Martínez García" required>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="fechaNacimiento">Fecha de nacimiento</label>
+              <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+            </div>
+            <div class="field">
+              <label for="dni">DNI</label>
+              <input type="text" id="dni" name="dni" placeholder="12345678A" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" name="correo" placeholder="tu.correo@centro.es" required>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="asignatura">Asignatura</label>
+              <input type="text" id="asignatura" name="asignatura" placeholder="Matemáticas" required>
+            </div>
+            <div class="field">
+              <label for="cursos">Cursos</label>
+              <input type="text" id="cursos" name="cursos" placeholder="2º ESO, 3º ESO" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="••••••••" required minlength="6">
+          </div>
+
+          <!-- Aqui mostraremos, desde register.js, los errores del backend (correo/dni duplicado) -->
+          <p id="form-error" class="form-message form-message--error" hidden></p>
+          <!-- Y aqui un mensaje de exito antes de redirigir al login -->
+          <p id="form-success" class="form-message form-message--success" hidden></p>
+
+          <button type="submit" class="btn-primary">Crear cuenta</button>
+        </form>
+
+        <p class="card-footer">
+          ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="js/register.js" defer></script>
+</body>
+</html>

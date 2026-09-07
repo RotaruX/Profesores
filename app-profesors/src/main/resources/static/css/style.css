@@ -221,3 +221,25 @@ body {
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; }
 }
+
+/* ---------- Extra para formularios con muchos campos (registro) ---------- */
+.card--wide {
+  max-width: 480px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .field-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-message--success {
+  background: rgba(16, 185, 129, 0.12);
+  color: #0B7A57;
+}

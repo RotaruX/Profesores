@@ -1,0 +1,223 @@
+/* Variables: centralizamos la paleta y las tipografias en un solo sitio */
+:root {
+  --azul-noche: #172554;
+  --coral: #F97360;
+  --crema: #FFFDF7;
+  --blanco: #FFFFFF;
+  --gris: #64748B;
+  --verde: #10B981;
+  --amarillo: #F59E0B;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Work Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--azul-noche);
+  background: var(--crema);
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---------- Panel izquierdo ---------- */
+.brand-panel {
+  background: var(--azul-noche);
+  color: var(--blanco);
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--coral);
+  font-weight: 600;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 1.2rem 0 1rem;
+}
+
+.brand-text {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 32ch;
+  line-height: 1.6;
+}
+
+.stack {
+  position: relative;
+  width: 220px;
+  height: 150px;
+  align-self: flex-end;
+}
+
+.stack-card {
+  position: absolute;
+  width: 200px;
+  height: 130px;
+  border-radius: 10px;
+  background: var(--blanco);
+}
+
+.stack-card--3 { transform: rotate(-9deg) translate(-6px, 10px); opacity: 0.35; }
+.stack-card--2 { transform: rotate(-4deg) translate(-2px, 4px); opacity: 0.6; }
+.stack-card--1 {
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.stack-line {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--gris);
+  opacity: 0.35;
+  width: 100%;
+}
+.stack-line--short { width: 60%; }
+
+.stack-check {
+  margin-top: auto;
+  align-self: flex-end;
+  color: var(--verde);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* ---------- Panel derecho: formulario ---------- */
+.form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--blanco);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 8px 30px rgba(23, 37, 84, 0.08);
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  color: var(--gris);
+  margin-top: 0.35rem;
+  margin-bottom: 1.75rem;
+  font-size: 0.95rem;
+}
+
+.field {
+  margin-bottom: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.field input {
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--azul-noche);
+  background: var(--crema);
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px rgba(249, 115, 96, 0.18);
+}
+
+.form-message {
+  font-size: 0.85rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.form-message--error {
+  background: rgba(249, 115, 96, 0.12);
+  color: #B23A28;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--coral);
+  color: var(--blanco);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.btn-primary:hover { background: #F0604A; }
+.btn-primary:focus-visible {
+  outline: 3px solid var(--azul-noche);
+  outline-offset: 2px;
+}
+
+.card-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--gris);
+}
+
+.card-footer a {
+  color: var(--coral);
+  font-weight: 600;
+  text-decoration: none;
+}
+.card-footer a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .page { grid-template-columns: 1fr; }
+  .brand-panel { padding: 2.5rem 1.5rem; }
+  .stack { display: none; }
+  .brand-title { font-size: 1.9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

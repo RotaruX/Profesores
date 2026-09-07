@@ -12,17 +12,21 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            // De momento seguimos sin CSRF para simplificar las pruebas con Postman;
-            // cuando conectemos el frontend real, retomamos esto con mas cuidado
             .csrf(csrf -> csrf.disable())
 
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**").permitAll()
+                .requestMatchers(
+                    "/",
+                    "/login.html",
+                    "/register.html",
+                    "/index.html",
+                    "/css/**",
+                    "/js/**"
+                ).permitAll()
                 .anyRequest().authenticated()
             )
 
-            // IF_REQUIRED (el valor por defecto): Spring crea una sesion
-            // automaticamente en cuanto haga falta (por ejemplo, al hacer login)
             .sessionManagement(session -> session
                 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
             );

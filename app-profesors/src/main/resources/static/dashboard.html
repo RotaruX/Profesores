@@ -2,11 +2,66 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Panel · App Profesores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Bienvenido/a 🎉</h1>
-  <p>Has iniciado sesión correctamente.</p>
+  <div class="app-layout">
+
+    <nav class="sidebar">
+      <div class="sidebar-logo">App Profesores</div>
+
+      <a href="dashboard.html" class="nav-item nav-item--active">Panel</a>
+      <a href="#" class="nav-item">Exámenes</a>
+      <a href="#" class="nav-item">Banco de preguntas</a>
+      <a href="#" class="nav-item">Sugerencias</a>
+      <a href="#" class="nav-item">Perfil</a>
+
+      <button id="logout-btn" class="nav-item nav-item--logout">Cerrar sesión</button>
+    </nav>
+
+    <main class="main-content">
+      <h1 id="saludo" class="dashboard-title">Cargando...</h1>
+      <p class="dashboard-subtitle">Este es el resumen de tu material docente.</p>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Exámenes</div>
+          <div class="metric-value">0</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Preguntas</div>
+          <div class="metric-value">0</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Trabajos</div>
+          <div class="metric-value">0</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label metric-label--warning">Sugerencias</div>
+          <div class="metric-value metric-value--warning">0</div>
+        </div>
+      </div>
+
+      <div class="quick-actions-title">Acciones rápidas</div>
+      <div class="quick-actions">
+        <button class="btn-primary btn-inline">Crear examen</button>
+        <button class="btn-secondary">Añadir pregunta</button>
+        <button class="btn-secondary">Ver sugerencias</button>
+      </div>
+
+      <div class="empty-state">
+        <p class="empty-state-title">Todavía no hay materiales guardados</p>
+        <p class="empty-state-text">Exámenes, preguntas y sugerencias aparecerán aquí a medida que las vayas construyendo.</p>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="js/dashboard.js" defer></script>
 </body>
 </html>

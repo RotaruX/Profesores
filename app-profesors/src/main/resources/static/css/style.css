@@ -243,3 +243,151 @@ body {
   background: rgba(16, 185, 129, 0.12);
   color: #0B7A57;
 }
+
+/* ---------- Layout del dashboard ---------- */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: var(--azul-noche);
+  color: var(--blanco);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.nav-item {
+  display: block;
+  padding: 0.65rem 0.5rem;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+.nav-item--active {
+  background: rgba(249, 115, 96, 0.18);
+  color: var(--blanco);
+}
+
+.nav-item--logout {
+  margin-top: auto;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.85rem;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2.5rem;
+}
+
+.dashboard-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-subtitle {
+  color: var(--gris);
+  font-size: 0.9rem;
+  margin-bottom: 1.75rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 1.75rem;
+}
+
+.metric-card {
+  background: var(--blanco);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  color: var(--gris);
+}
+.metric-label--warning { color: var(--amarillo); }
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.metric-value--warning { color: var(--amarillo); }
+
+.quick-actions-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 1.75rem;
+}
+
+.btn-inline {
+  width: auto;
+  padding: 0.65rem 1.1rem;
+}
+
+.btn-secondary {
+  background: var(--blanco);
+  color: var(--azul-noche);
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.65rem 1.1rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.empty-state {
+  background: var(--blanco);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.empty-state-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.empty-state-text {
+  font-size: 0.85rem;
+  color: var(--gris);
+  margin-top: 2px;
+}
+
+@media (max-width: 800px) {
+  .app-layout { flex-direction: column; }
+  .sidebar { width: 100%; flex-direction: row; overflow-x: auto; }
+  .nav-item--logout { margin-top: 0; margin-left: auto; }
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+}

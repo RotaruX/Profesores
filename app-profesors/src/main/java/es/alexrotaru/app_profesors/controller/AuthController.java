@@ -1,5 +1,8 @@
 package es.alexrotaru.app_profesors.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -11,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 import es.alexrotaru.app_profesors.Profesor;
 import es.alexrotaru.app_profesors.dto.LoginRequest;
+import es.alexrotaru.app_profesors.dto.ProfesorResponse;
 import es.alexrotaru.app_profesors.dto.RegisterRequest;
+import es.alexrotaru.app_profesors.repository.ProfesorRepository;
 import es.alexrotaru.app_profesors.services.AuthService;
 
 @RestController
@@ -26,9 +29,12 @@ import es.alexrotaru.app_profesors.services.AuthService;
 public class AuthController {
 
     private final AuthService authService;
+    private final ProfesorRepository profesorRepository;
 
-    public AuthController(AuthService authService) {
+    // Spring inyecta automaticamente los dos: AuthService y ProfesorRepository
+    public AuthController(AuthService authService, ProfesorRepository profesorRepository) {
         this.authService = authService;
+        this.profesorRepository = profesorRepository;
     }
 
     @PostMapping("/register")
@@ -40,23 +46,45 @@ public class AuthController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
-    
+
     @GetMapping("/perfil")
     public ResponseEntity<?> perfil(Authentication authentication) {
-
-        // Si no hay sesion activa, Spring Security ya habria bloqueado la peticion
-        // antes de llegar aqui (gracias a anyRequest().authenticated() en SecurityConfig).
-        // Si llegamos a este punto, es porque "authentication" contiene al usuario logueado.
 
         if (authentication == null) {
             return ResponseEntity.status(401).body("No hay sesión activa");
         }
 
-        // authentication.getName() devuelve el "nombre" que le dimos al crear el token en el login:
-        // en nuestro caso, el correo del profesor (mira UsernamePasswordAuthenticationToken en login())
         String correo = authentication.getName();
 
-        return ResponseEntity.ok("Sesión activa para: " + correo);
+        Optional<Profesor> resultado = profesorRepository.findByCorreo(correo);
+
+        if (resultado.isEmpty()) {
+            return ResponseEntity.status(404).body("Profesor no encontrado");
+        }
+
+        Profesor profesor = resultado.get();
+
+        ProfesorResponse respuesta = new ProfesorResponse(
+                profesor.getId(),
+                profesor.getNombre(),
+                profesor.getApellidos(),
+                profesor.getCorreo(),
+                profesor.getAsignatura(),
+                profesor.getCursos(),
+                profesor.getRol()
+        );
+
+        return ResponseEntity.ok(respuesta);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        SecurityContextHolder.clearContext();
+        return ResponseEntity.ok("Sesión cerrada");
     }
 
     @PostMapping("/login")
@@ -64,25 +92,18 @@ public class AuthController {
         try {
             Profesor profesor = authService.login(datos);
 
-            // Creamos un "Authentication": el objeto que Spring Security usa
-            // para saber quien esta autenticado y con que permisos (roles)
             Authentication authentication = new UsernamePasswordAuthenticationToken(
                     profesor.getCorreo(),
                     null,
                     List.of(() -> "ROLE_" + profesor.getRol())
             );
 
-            // Guardamos esa autenticacion en el "contexto de seguridad" de Spring
             SecurityContext context = SecurityContextHolder.createEmptyContext();
             context.setAuthentication(authentication);
             SecurityContextHolder.setContext(context);
 
-            // Y lo persistimos en la sesion HTTP, para que sobreviva a esta peticion
-            // y se recuerde en las siguientes
             HttpSession session = request.getSession(true);
             session.setAttribute("SPRING_SECURITY_CONTEXT", context);
-
-            System.out.println("Sesión creada con id: " + session.getId());
 
             return ResponseEntity.ok(profesor);
 

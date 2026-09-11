@@ -391,3 +391,311 @@ body {
   .nav-item--logout { margin-top: 0; margin-left: auto; }
   .metrics-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ---------- Pagina de examenes ---------- */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 1.75rem;
+}
+
+.content-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.examenes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.examen-card {
+  background: var(--blanco);
+  border-radius: 12px;
+  padding: 1.1rem;
+}
+
+.examen-card-curso {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.examen-card-fecha {
+  font-size: 0.85rem;
+  color: var(--gris);
+  margin-bottom: 4px;
+}
+
+.examen-card-preguntas {
+  font-size: 0.8rem;
+  color: var(--coral);
+  font-weight: 500;
+}
+
+.field select {
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--azul-noche);
+  background: var(--crema);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 37, 84, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 50;
+}
+
+.modal-card {
+  background: var(--blanco);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 480px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.preguntas-lista {
+  max-height: 160px;
+  overflow-y: auto;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 8px;
+  margin-top: 6px;
+}
+
+.pregunta-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.85rem;
+  padding: 6px 4px;
+  cursor: pointer;
+}
+
+.nueva-pregunta {
+  margin-top: 1.25rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nueva-pregunta label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.nueva-pregunta textarea {
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  background: var(--crema);
+  resize: vertical;
+  min-height: 60px;
+}
+
+.nueva-pregunta select,
+.nueva-pregunta .field-row input {
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  background: var(--crema);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 1.25rem;
+}
+
+.section-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-family: var(--font-display);
+}
+
+.crear-examen-config {
+  margin-bottom: 1.75rem;
+  max-width: 480px;
+}
+
+.field select {
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--azul-noche);
+  background: var(--crema);
+}
+
+/* Grid de preguntas seleccionables */
+.preguntas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 14px;
+  margin-bottom: 1.5rem;
+  align-items: start;
+}
+
+.pregunta-card {
+  position: relative;
+  background: var(--blanco);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 14px 30px 18px 14px;
+  cursor: pointer;
+  max-height: 110px;
+  overflow: hidden;
+  transition: max-height 0.22s ease, transform 0.18s ease, box-shadow 0.18s ease, border-color 0.15s ease;
+}
+
+/* Difumina el final del texto cuando esta recortado, para que se note que hay mas */
+.pregunta-card::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 26px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--blanco));
+  transition: opacity 0.15s ease;
+}
+
+.pregunta-card {
+  position: relative;
+  background: var(--blanco);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 14px 34px 18px 14px;
+  cursor: pointer;
+  max-height: 110px;
+  overflow: hidden;
+  transition: max-height 0.22s ease, box-shadow 0.18s ease, border-color 0.15s ease;
+}
+
+.pregunta-card::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 26px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--blanco));
+  transition: opacity 0.15s ease;
+}
+
+/* En pantallas con raton (ordenador), tambien se expande al pasar por encima */
+@media (hover: hover) and (pointer: fine) {
+  .pregunta-card:hover {
+    max-height: 500px;
+    box-shadow: 0 14px 30px rgba(23, 37, 84, 0.18);
+    z-index: 2;
+  }
+  .pregunta-card:hover::after { opacity: 0; }
+}
+
+/* En cualquier dispositivo (con o sin raton), tocar la card la expande */
+.pregunta-card--expandida {
+  max-height: 500px;
+  box-shadow: 0 14px 30px rgba(23, 37, 84, 0.18);
+  z-index: 2;
+}
+.pregunta-card--expandida::after { opacity: 0; }
+
+.pregunta-card-texto {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--azul-noche);
+  margin-bottom: 8px;
+}
+
+.pregunta-card-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: var(--gris);
+  background: var(--crema);
+  border-radius: 6px;
+  padding: 2px 8px;
+}
+
+.pregunta-card-check {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #E2E8F0;
+  background: var(--blanco);
+  cursor: pointer;
+  padding: 0;
+}
+
+.pregunta-card-check::after {
+  content: "";
+  display: block;
+}
+
+.pregunta-card--seleccionada {
+  border-color: var(--coral);
+}
+
+.pregunta-card--seleccionada .pregunta-card-check {
+  background: var(--coral);
+  border-color: var(--coral);
+}
+.pregunta-card--seleccionada .pregunta-card-check::after {
+  content: "✓";
+  color: var(--blanco);
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .preguntas-grid {
+    grid-template-columns: 1fr;
+  }
+  .content-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .content-actions {
+    display: flex;
+  }
+  .content-actions .btn-secondary,
+  .content-actions .btn-primary {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+.examen-card {
+  text-decoration: none;
+  display: block;
+  color: inherit;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.examen-card:hover {
+  box-shadow: 0 10px 24px rgba(23, 37, 84, 0.12);
+  transform: translateY(-2px);
+}

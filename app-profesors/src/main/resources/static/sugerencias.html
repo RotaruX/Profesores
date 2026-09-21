@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sugerencias · App Profesores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+
+    <nav class="sidebar">
+      <div class="sidebar-logo">App Profesores</div>
+
+      <a href="dashboard.html" class="nav-item">Panel</a>
+      <a href="examenes.html" class="nav-item">Exámenes</a>
+      <a href="preguntas.html" class="nav-item">Banco de preguntas</a>
+      <a href="sugerencias.html" class="nav-item nav-item--active">Sugerencias</a>
+      <a href="#" class="nav-item">Perfil</a>
+
+      <button id="logout-btn" class="nav-item nav-item--logout">Cerrar sesión</button>
+    </nav>
+
+    <main class="main-content">
+      <h1 class="dashboard-title">Sugerencias</h1>
+      <p class="dashboard-subtitle">Anota qué ha funcionado y qué no, pregunta a pregunta.</p>
+
+      <div class="nueva-pregunta nueva-pregunta--pagina">
+        <label for="sugerencia-pregunta">Sobre qué pregunta</label>
+        <select id="sugerencia-pregunta"></select>
+        <p id="sin-preguntas" class="empty-state-text" hidden>Todavía no tienes preguntas guardadas. Crea alguna primero en el banco de preguntas.</p>
+
+        <label for="sugerencia-texto">Tu sugerencia</label>
+        <textarea id="sugerencia-texto" placeholder="Ej: Esta pregunta resultó demasiado difícil, el 60% falló..."></textarea>
+
+        <button id="btn-anadir-sugerencia" class="btn-primary btn-inline" type="button">Añadir sugerencia</button>
+      </div>
+
+      <h2 class="section-title">Tus sugerencias</h2>
+      <div id="sugerencias-lista" class="sugerencias-lista"></div>
+      <p id="sugerencias-vacio" class="empty-state-text" hidden>Todavía no has escrito ninguna sugerencia.</p>
+    </main>
+  </div>
+
+  <script src="js/common.js" defer></script>
+  <script src="js/sugerencias.js" defer></script>
+</body>
+</html>

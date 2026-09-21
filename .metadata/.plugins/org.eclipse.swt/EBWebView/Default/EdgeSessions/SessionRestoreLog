@@ -49,3 +49,9 @@
 {"logTime": "0921/073330", "session": "START"}
 {"logTime": "0921/073330", "level": "INFO", "location": "chrome\\browser\\sessions\\session_service_log.cc:326 EdgeLogSessionServiceMessage", "message": "SessionServiceEvent: kStart - {\r\n   \"crashed\": false,\r\n   \"type\": 0\r\n}\r\n"}
 {"logTime": "0921/074411", "session": "END"}
+{"logTime": "0921/081102", "session": "START"}
+{"logTime": "0921/081102", "level": "INFO", "location": "chrome\\browser\\sessions\\session_service_log.cc:326 EdgeLogSessionServiceMessage", "message": "SessionServiceEvent: kStart - {\r\n   \"crashed\": false,\r\n   \"type\": 0\r\n}\r\n"}
+{"logTime": "0921/093634", "session": "END"}
+{"logTime": "0921/093711", "session": "START"}
+{"logTime": "0921/093711", "level": "INFO", "location": "chrome\\browser\\sessions\\session_service_log.cc:326 EdgeLogSessionServiceMessage", "message": "SessionServiceEvent: kStart - {\r\n   \"crashed\": false,\r\n   \"type\": 0\r\n}\r\n"}
+{"logTime": "0921/093714", "session": "END"}

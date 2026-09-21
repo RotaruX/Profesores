@@ -1,31 +1,25 @@
 let profesorActual = null;
 let preguntasSeleccionadas = new Set();
 
-// Si la URL trae ?id=5, estamos editando ese examen; si no, estamos creando uno nuevo
 const params = new URLSearchParams(window.location.search);
 const examenId = params.get('id');
 
-async function comprobarSesion() {
-    try {
-        const respuesta = await fetch('http://localhost:8080/auth/perfil', { credentials: 'include' });
-        if (!respuesta.ok) { window.location.href = 'login.html'; return; }
-        profesorActual = await respuesta.json();
+async function iniciar() {
+    profesorActual = await comprobarSesion();
+    if (!profesorActual) return;
 
-        if (examenId) {
-            document.querySelector('.dashboard-title').textContent = 'Editar examen';
-            document.getElementById('btn-guardar-examen').textContent = 'Guardar cambios';
-            await cargarExamenExistente();
-        }
-
-        rellenarCursos();
-        cargarPreguntas();
-    } catch (error) {
-        window.location.href = 'login.html';
+    if (examenId) {
+        document.querySelector('.dashboard-title').textContent = 'Editar examen';
+        document.getElementById('btn-guardar-examen').textContent = 'Guardar cambios';
+        await cargarExamenExistente();
     }
+
+    rellenarCursos();
+    cargarPreguntas();
 }
 
 async function cargarExamenExistente() {
-    const respuesta = await fetch('http://localhost:8080/examenes/' + examenId, { credentials: 'include' });
+    const respuesta = await fetch(API_URL + '/examenes/' + examenId, { credentials: 'include' });
     if (!respuesta.ok) {
         alert('No se pudo cargar el examen.');
         window.location.href = 'examenes.html';
@@ -34,10 +28,8 @@ async function cargarExamenExistente() {
     const examen = await respuesta.json();
 
     document.getElementById('examen-fecha').value = examen.fecha || '';
-    // Guardamos el curso para aplicarlo despues de rellenar el desplegable
     document.getElementById('examen-curso').dataset.valorInicial = examen.curso;
 
-    // Marcamos como seleccionadas las preguntas que YA tenia el examen
     examen.preguntas.forEach(p => preguntasSeleccionadas.add(p.id));
 }
 
@@ -55,7 +47,6 @@ function rellenarCursos() {
         select.appendChild(option);
     });
 
-    // Si veniamos de editar un examen, seleccionamos su curso en el desplegable
     if (select.dataset.valorInicial) {
         select.value = select.dataset.valorInicial;
     }
@@ -71,7 +62,7 @@ function actualizarCursoActual() {
 }
 
 async function cargarPreguntas() {
-    const respuesta = await fetch('http://localhost:8080/preguntas', { credentials: 'include' });
+    const respuesta = await fetch(API_URL + '/preguntas', { credentials: 'include' });
     const preguntas = await respuesta.json();
 
     const grid = document.getElementById('preguntas-grid');
@@ -128,7 +119,7 @@ document.getElementById('btn-anadir-pregunta').addEventListener('click', async f
         return;
     }
 
-    const respuesta = await fetch('http://localhost:8080/preguntas', {
+    const respuesta = await fetch(API_URL + '/preguntas', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -156,10 +147,7 @@ document.getElementById('btn-guardar-examen').addEventListener('click', async fu
         return;
     }
 
-    // Si hay examenId, editamos (PUT); si no, creamos uno nuevo (POST)
-    const url = examenId
-        ? 'http://localhost:8080/examenes/' + examenId
-        : 'http://localhost:8080/examenes';
+    const url = examenId ? API_URL + '/examenes/' + examenId : API_URL + '/examenes';
     const metodo = examenId ? 'PUT' : 'POST';
 
     try {
@@ -187,11 +175,5 @@ document.getElementById('btn-guardar-examen').addEventListener('click', async fu
     }
 });
 
-document.getElementById('logout-btn').addEventListener('click', async function () {
-    try {
-        await fetch('http://localhost:8080/auth/logout', { method: 'POST', credentials: 'include' });
-    } catch (error) {}
-    window.location.href = 'login.html';
-});
-
-comprobarSesion();
+activarLogout();
+iniciar();

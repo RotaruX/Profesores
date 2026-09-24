@@ -16,10 +16,7 @@ public class SecurityConfig {
 
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**").permitAll()
-                // Cualquier archivo .html, y los recursos css/js, son publicos.
-                // La proteccion real de las paginas privadas la hace el JS
-                // llamando a /auth/perfil, no Spring Security bloqueando el HTML.
-                .requestMatchers("/", "/*.html", "/css/**", "/js/**").permitAll()
+                .requestMatchers("/", "/*.html", "/css/**", "/js/**", "/uploads/**").permitAll()
                 .anyRequest().authenticated()
             )
 

@@ -31,6 +31,12 @@ async function cargarExamenExistente() {
     document.getElementById('examen-curso').dataset.valorInicial = examen.curso;
 
     examen.preguntas.forEach(p => preguntasSeleccionadas.add(p.id));
+    
+    if (examen.archivoUrl) {
+        const enlace = document.getElementById('ver-documento-link');
+        enlace.href = API_URL + examen.archivoUrl;
+        enlace.hidden = false;
+    }
 }
 
 function rellenarCursos() {

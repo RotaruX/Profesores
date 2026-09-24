@@ -19,7 +19,9 @@ async function cargarExamenes() {
         card.innerHTML =
             '<div class="examen-card-curso">' + examen.curso + '</div>' +
             '<div class="examen-card-fecha">' + (examen.fecha || 'Sin fecha') + '</div>' +
-            '<div class="examen-card-preguntas">' + examen.numeroPreguntas + ' pregunta(s)</div>';
+            '<div class="examen-card-preguntas">' + examen.numeroPreguntas + ' pregunta(s)' +
+                (examen.archivoUrl ? ' · 📄 documento' : '') +
+            '</div>';
         grid.appendChild(card);
     });
 }
@@ -30,9 +32,6 @@ async function iniciar() {
     cargarExamenes();
 }
 
-document.getElementById('btn-subir').addEventListener('click', function () {
-    alert('Subir examen estará disponible próximamente.');
-});
 
 activarLogout();
 iniciar();

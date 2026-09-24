@@ -68,4 +68,9 @@ public class Examen {
 
     public List<Pregunta> getPreguntas() { return preguntas; }
     public void setPreguntas(List<Pregunta> preguntas) { this.preguntas = preguntas; }
+    
+    private String archivoUrl; // ruta al documento subido, si lo hay
+
+    public String getArchivoUrl() { return archivoUrl; }
+    public void setArchivoUrl(String archivoUrl) { this.archivoUrl = archivoUrl; }
 }

@@ -7,15 +7,18 @@ public class ExamenResponse {
     private String curso;
     private LocalDate fecha;
     private int numeroPreguntas;
+    private String archivoUrl;
 
-    public ExamenResponse() {}
-
-    public ExamenResponse(Long id, String curso, LocalDate fecha, int numeroPreguntas) {
+    public ExamenResponse(Long id, String curso, LocalDate fecha, int numeroPreguntas, String archivoUrl) {
         this.id = id;
         this.curso = curso;
         this.fecha = fecha;
         this.numeroPreguntas = numeroPreguntas;
+        this.archivoUrl = archivoUrl;
     }
+
+    public String getArchivoUrl() { return archivoUrl; }
+    public void setArchivoUrl(String archivoUrl) { this.archivoUrl = archivoUrl; }
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -25,4 +28,5 @@ public class ExamenResponse {
     public void setFecha(LocalDate fecha) { this.fecha = fecha; }
     public int getNumeroPreguntas() { return numeroPreguntas; }
     public void setNumeroPreguntas(int numeroPreguntas) { this.numeroPreguntas = numeroPreguntas; }
+    
 }

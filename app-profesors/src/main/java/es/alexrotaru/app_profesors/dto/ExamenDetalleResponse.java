@@ -8,16 +8,20 @@ public class ExamenDetalleResponse {
     private String curso;
     private LocalDate fecha;
     private List<PreguntaResponse> preguntas;
+    private String archivoUrl;
 
     public ExamenDetalleResponse() {}
 
-    public ExamenDetalleResponse(Long id, String curso, LocalDate fecha, List<PreguntaResponse> preguntas) {
+    public ExamenDetalleResponse(Long id, String curso, LocalDate fecha, List<PreguntaResponse> preguntas, String archivoUrl) {
         this.id = id;
         this.curso = curso;
         this.fecha = fecha;
         this.preguntas = preguntas;
+        this.archivoUrl = archivoUrl;
     }
-
+    
+    public String getArchivoUrl() { return archivoUrl; }
+    public void setArchivoUrl(String archivoUrl) { this.archivoUrl = archivoUrl; }
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getCurso() { return curso; }
@@ -26,4 +30,6 @@ public class ExamenDetalleResponse {
     public void setFecha(LocalDate fecha) { this.fecha = fecha; }
     public List<PreguntaResponse> getPreguntas() { return preguntas; }
     public void setPreguntas(List<PreguntaResponse> preguntas) { this.preguntas = preguntas; }
+    
+    
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subir examen · App Profesores</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+
+    <nav class="sidebar">
+      <div class="sidebar-logo">App Profesores</div>
+
+      <a href="dashboard.html" class="nav-item">Panel</a>
+      <a href="examenes.html" class="nav-item nav-item--active">Exámenes</a>
+      <a href="preguntas.html" class="nav-item">Banco de preguntas</a>
+      <a href="sugerencias.html" class="nav-item">Sugerencias</a>
+      <a href="#" class="nav-item">Perfil</a>
+
+      <button id="logout-btn" class="nav-item nav-item--logout">Cerrar sesión</button>
+    </nav>
+
+    <main class="main-content">
+      <h1 class="dashboard-title">Subir examen</h1>
+      <p class="dashboard-subtitle">Guarda el documento de un examen ya hecho.</p>
+
+      <div class="field-row crear-examen-config">
+        <div class="field">
+          <label for="examen-curso">Curso</label>
+          <select id="examen-curso"></select>
+        </div>
+        <div class="field">
+          <label for="examen-fecha">Fecha (opcional)</label>
+          <input type="date" id="examen-fecha">
+        </div>
+      </div>
+
+      <div class="field crear-examen-config">
+        <label for="examen-archivo">Documento (PDF o Word)</label>
+        <input type="file" id="examen-archivo" accept=".pdf,.doc,.docx">
+      </div>
+
+      <p id="form-error" class="form-message form-message--error" hidden></p>
+
+      <div id="revision" hidden>
+        <h2 class="section-title">Preguntas detectadas</h2>
+        <p class="dashboard-subtitle">Revísalas antes de guardarlas. Puedes editarlas o descartar las que no quieras.</p>
+        <div id="preguntas-detectadas"></div>
+        <p id="sin-deteccion" class="empty-state-text" hidden>No se detectó ninguna pregunta automáticamente. Puedes añadirlas a mano desde el banco de preguntas.</p>
+      </div>
+
+      <div class="modal-actions">
+        <a href="./examenes.html" class="btn-secondary">Cancelar</a>
+        <button id="btn-guardar" class="btn-primary btn-inline" type="button">Subir examen</button>
+        <button id="btn-continuar" class="btn-primary btn-inline" type="button" hidden>Guardar preguntas y continuar</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/common.js" defer></script>
+  <script src="js/subir-examen.js" defer></script>
+</body>
+</html>
